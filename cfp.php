@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="conf-style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Wits</title>
 
@@ -51,8 +51,8 @@
 </p>
 <h4 class="head">Submission:</h4>
 <p class = "text">The submitted paper must be formatted according to the Springer template:</p> <br>
-<a href="imgs/word.zip" target="_blank"><img border="0" src="imgs/templ_word.jpg" width="500" height="80"> </a>
-<a href="imgs/latex.zip" target="_blank"><img border="0" src="imgs/templ_latex.jpg" width="500" height="80"> </a> <br>
+<a href="word.zip" target="_self"><img border="0" src="imgs/templ_word.jpg" width="500" height="80"> </a>
+<a href="latex.zip" target="_self"><img border="0" src="imgs/templ_latex.jpg" width="500" height="80"> </a> <br>
 <h4 class="head">Paper Submission:</h4>
 <p class="text" >Authors are requested to submit their papers electronically using the online conference management system in PDF format before the deadline. <br>The submission processes will be managed by easychair.org. if you have used this system before, you can use the same username and password. If this is your first time using EasyChair, you will need to register for an account by clicking "I have no EasyChair account" button. Upon completion of registration, you will get a notification email from the system and you are ready for submitting your paper. You can upload and re-upload the paper to the system by the submission due date.</p>
 </section>
@@ -62,7 +62,7 @@
 <br>
 
 
-    <div class="contents">
+    <div>
 
     <?php
     try {
@@ -79,8 +79,8 @@
     $result=$pdo->query($sql);
    
     while($row=$result->fetch()){
-    echo"<span class=top>".$row[1].": </span> ";  
-    echo"<br>" ;  
+    echo"<p class=top>".$row[1].": </p> ";  
+   
     
    
     $sqlD="select  libelle_element from element where id_top=".$row[0];

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href ="conf-style.css">
+    <link rel="stylesheet" href ="style.css">
     <link rel ="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Wits</title>
 
@@ -28,7 +28,7 @@
     </header>
 
 <section  class="main">
-    <div class="content">
+    <div class="content" >
         <h2> The 8<small>th</small> international conference on wireless technologies, embeded and intelligent systems</h2>
         
         <div class="paragraphe">
@@ -51,18 +51,16 @@
 try {
     $pdo=new PDO("mysql:host=localhost;dbname=gestionconference","root","");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-     
-
 } catch (PDOException $e) {
     die("error: could not connect". $e->getMessage());
 }
 
 
 try{
+
     $sql="select  lien from publisher ";
     $result=$pdo->query($sql);
-    
-         
+
     while($row=$result->fetch()){
     echo "<div  class=card >" ;      
     echo" <img  class=img src=". $row[0].">";
@@ -75,13 +73,11 @@ catch (PDOException $e) {
 }
 
 ?> 
-
 </div>
 </section>
 
+<h2  class="title"> Important Dates</h2>
 <section class="important_date ">
-<h2  class="title"> Important Date</h2>
-
 <?php
 try{
     $sql="select  id_type,type from type ";
@@ -102,7 +98,7 @@ try{
     while($date=$resultD->fetch()){
   
         if(  $j[0] > 1){
-                      if($i<  $j[0])
+                      if($i<$j[0])
                             {
                 echo"<p class=date> <s>".$date[0]."</s></p>";  
                             }
@@ -189,9 +185,6 @@ try{
     echo" <img  class=img src=". $row[1].">";
     echo("</div>");
     }
-
-
-
 }
 catch (PDOException $e) {
     die("error: could not connect". $e->getMessage());
@@ -275,14 +268,7 @@ catch (PDOException $e) {
 
 
 
-
-
-
-
-
-
-
-<section class="contact" id="contact">
+<section class="contact" >
 <h2  class="title">Contact Us</h2>
 <div class="content">
     <div class="card">

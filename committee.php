@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="conf-style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Wits</title>
 
@@ -29,10 +29,11 @@
     </header>
 
     <section class="comitte" >
-    <h1 class="title"> Committee</h1>
+    
     </section>
 <section class="com">
-<div class ="content">
+<div>
+<h2 class="title"> Committee :</h2>
 <?php
 
     try {
@@ -52,23 +53,26 @@
     while($row=$resultC->fetch()){
     echo"<p class=top>".$row[1].": </p> "; 
    
-
+  
     
    
     $sql="SELECT nom, prenom, fonction, etabblissement, universite, laboratoire, ville, pays FROM element_commitee , appartenir_commitee WHERE appartenir_commitee.id_elmtC=element_commitee.id_elmtC and appartenir_commitee.id_com=".$row[0];
     $resultD=$pdo->query($sql);
 while($element=$resultD->fetch()){
-    echo "<span class=elementt>";
+    echo "<p class=elementt>";
    
-  echo $element['nom'] ," " ,$element['prenom'] ,",",$element['fonction'],",",$element['etabblissement'],",",$element['universite'],",",$element['laboratoire'],",",$element['ville'],",",$element['pays']; 
-  echo"<br>" ; 
-  echo "</span>";  
+  echo "<strong>". $element['nom'] ," " ,$element['prenom'] ."</strong>"," ",$element['fonction']," ",$element['etabblissement']," ",$element['universite']," ",$element['laboratoire']," ",$element['ville']," ",$element['pays'];  
+  
+  
+  echo "</p>"; 
+ 
+
     }
 
-  echo"<br>" ; 
+ 
   
     }
-      echo"<br>" ; 
+     
 
 }
 catch (PDOException $e) {
@@ -86,6 +90,3 @@ echo "<br>";
 </footer>
 </body>
 </html>
-
-   
-
